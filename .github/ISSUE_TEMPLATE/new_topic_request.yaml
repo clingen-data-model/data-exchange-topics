@@ -1,12 +1,12 @@
 name: New Topic Request
-description: Request for new topic on the dataexchange
+description: Request a new topic on the dataexchange
 title: "[New Topic]: "
 labels: [topics]
 body:
   - type: input
     id: producer-contact
     attributes:
-      label: Topic Producer/Deceloper Contact Details
+      label: Topic Producer/Developer Contact Details
       description: How can we get in touch with you if we need more info?
       placeholder: ex. email@example.com
     validations:
