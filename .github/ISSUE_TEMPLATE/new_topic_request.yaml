@@ -39,7 +39,7 @@ body:
       label: Number of partitions
       description: The number of partitions that your topic needs. If you're unsure, select 1.
       options:
-        - "1"
+        - "1 (recommended)"
         - "2"
         - "3"
         - "4"
