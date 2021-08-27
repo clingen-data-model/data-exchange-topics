@@ -16,7 +16,7 @@ body:
     attributes:
       label: Producer API Key
       description: What is the name of the API key that should have write access to the topic?
-      placeholder: ABCDEFGHIJK
+      placeholder: ex. ABCDEFGHIJK
   - type: input
     id: consumer-contact
     attributes:
@@ -30,7 +30,7 @@ body:
     attributes:
       label: What would you like to name your topic?
       description: The name of your topic should match the format "TODO"
-      placeholder: institution-group-environment
+      placeholder: ex. institution-group-environment
     validations:
       required: true
   - type: dropdown
