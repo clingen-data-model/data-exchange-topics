@@ -1,0 +1,76 @@
+name: New Topic Request
+description: Request for new topic on the dataexchange
+title: "[New Topic]: "
+labels: [topics]
+body:
+  - type: input
+    id: producer-contact
+    attributes:
+      label: Topic Producer/Deceloper Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: true
+  - type: input
+    id: producer-apikey
+    attributes:
+      label: Producer API Key
+      description: What is the name of the API key that should have write access to the topic?
+      placeholder: ABCDEFGHIJK
+  - type: input
+    id: consumer-contact
+    attributes:
+      label: Topic Consumer/User Information
+      description: Who is the intended consumer of the topic?
+      placeholder: ex. email@example.com/TGG Lab/Broad Institute
+    validations:
+      required: true
+  - type: textarea
+    id: topic-name
+    attributes:
+      label: What would you like to name your topic?
+      description: Also tell us, what did you expect to happen?
+      placeholder: institution-group-environment
+    validations:
+      required: true
+  - type: dropdown
+    id: partitions
+    attributes:
+      label: Number of partitions
+      description: The number of partitions that your topic needs. If you're unsure, select 1.
+      options:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+      validations:
+        required: true
+  - type: dropdown
+    id: persistence
+    attributes:
+      label: Message Persistence
+      description: Do messages in your topic need to be persisted?
+      options:
+        - Indefinitely (yes)
+        - 1 week (no)
+    validations:
+      required: true
+  - type: textarea
+    id: sensitivity
+    attributes:
+      label: Can the data in this topic be shared publicly?
+      description: All topics grant read access restricted to authenticated users and a specific set of service accounts. Please note here if care needs to be taken when granting additional permissions.
+  - type: checkboxes
+    id: clusters
+    attributes:
+      label: Which clusters should this topic be created on?
+      description: Topics can be created on staging for testing/development workloads, or on production for release workloads.
+      options:
+        - label: staging
+        - label: production
