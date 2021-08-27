@@ -25,11 +25,11 @@ body:
       placeholder: ex. email@example.com/TGG Lab/Broad Institute
     validations:
       required: true
-  - type: textarea
+  - type: input
     id: topic-name
     attributes:
       label: What would you like to name your topic?
-      description: Also tell us, what did you expect to happen?
+      description: The name of your topic should match the format "TODO"
       placeholder: institution-group-environment
     validations:
       required: true
