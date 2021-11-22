@@ -165,3 +165,23 @@
         (into {} (for [[cluster-name cluster-config] (read-cluster-configs "cluster-configs.edn")]
                    [cluster-name (doall (get-all-topic-infos cluster-config))]))]
     (pprint topic-infos)))
+
+
+(defn topic-infos-to-csv [filename]
+  (let [topic-infos (-> filename io/file slurp read-string)]
+    (let [cols ["Cluster" "Topic" "Partition" "Message Count" "First Timestamp" "Last Timestamp"]
+          rows (for [[cluster-name topics] topic-infos]
+                 (for [[topic-name partition-infos] topics]
+                   (for [partition-info (sort-by :partition partition-infos)]
+                     [cluster-name
+                      topic-name
+                      (:partition partition-info)
+                      (:message-count partition-info)
+                      (:first-timestamp-iso8601 partition-info)
+                      (:last-timestamp-iso8601 partition-info)
+                      ])))
+          rows-flat (->> rows (apply concat) (apply concat))]
+      (s/join "\n" (cons (s/join "," cols)
+                         (mapv #(s/join "," %) (doall rows-flat))))
+
+      )))

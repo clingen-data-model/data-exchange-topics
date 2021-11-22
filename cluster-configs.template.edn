@@ -1,0 +1,9 @@
+{"dev" {:kafka-user ""
+        :kafka-password ""
+        :kafka-host ""}
+ "stage" {:kafka-user ""
+          :kafka-password ""
+          :kafka-host ""}
+ "prod" {:kafka-user ""
+         :kafka-password ""
+         :kafka-host ""}}
