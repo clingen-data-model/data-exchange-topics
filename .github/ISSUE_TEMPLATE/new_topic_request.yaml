@@ -21,16 +21,23 @@ body:
     id: consumer-contact
     attributes:
       label: Topic Consumer/User Information
-      description: Who is the intended consumer of the topic?
-      placeholder: ex. email@example.com/TGG Lab/Broad Institute
+      description: Who is/are the intended consumer(s) of the topic?
+      placeholder: ex. VCI, Website, GeneGraph, GeneTracker, ...
     validations:
       required: true
   - type: input
     id: topic-name
     attributes:
-      label: What would you like to name your topic?
-      description: The name of your topic should match the format "TODO"
-      placeholder: ex. institution-group-environment
+      label: Topic Name (suggested)
+      description: Lowercase alphanumeric name, no spaces, dash separators allowed
+      placeholder: ex. appacronym-content, mondo-planned-obsoletions, ...
+    validations:
+      required: true
+  - type: textarea
+    id: topic-description
+    attributes:
+      label: Topic Description
+      description: A sentence or two describing the purpose of the topic.
     validations:
       required: true
   - type: dropdown
@@ -74,3 +81,10 @@ body:
       options:
         - label: staging
         - label: production
+  - type: checkboxes
+    id: backup
+    attributes:
+      label: Do you want to have the topic backed up to GCS?
+      description: If checked, the topic contents will be backed up to the "clingen-confluent-backups" bucket on the Broad clingen-dx GCP project."
+      options:
+        - label: backup to GCS
